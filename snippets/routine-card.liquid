@@ -1,0 +1,63 @@
+<div class="grid__item" {{ block.shopify_attributes }}>
+    <div class="routine-grid__card">
+        {% if block.settings.image %}
+        <div class="routine-grid__image">
+            <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.title }}">
+            {% if block.settings.badge %}
+            <span class="routine-grid__plan">{{ block.settings.plan }}</span>
+            {% endif %}
+        </div>
+        {% endif %}
+        <div class="routine-grid__card-content">
+        {% if block.settings.is_popular %}
+            <div class="routine-grid__badge">
+            <span class="routine-grid__badge-icon">
+                <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 0C11.3132 4.87717 15.1228 8.68683 20 10C15.1228 11.3132 11.3132 15.1228 10 20C8.68683 15.1228 4.87717 11.3132 0 10C4.87717 8.68683 8.68683 4.87717 10 0Z" fill="white" />
+                </svg>
+            </span>
+            <span class="routine-grid__badge-text">{{ block.settings.badge }}</span>
+            </div>
+        {% endif %}
+        {% if block.settings.title %}
+            <h3>{{ block.settings.title }}</h3>
+        {% endif %}
+        {% if block.settings.price %}
+            <p class="routine-grid__price">{{ block.settings.price }}</p>
+        {% endif %}
+        {% if block.settings.description %}
+            <p>{{ block.settings.description }}</p>
+        {% endif %}
+        {% if block.settings.featured_list %}
+            <div class="routine-grid__list">
+            {{ block.settings.featured_list }}
+            </div>
+        {% endif %}
+        {% if block.settings.button_label and block.settings.button_link %}
+            <a href="{{ block.settings.button_link }}" class="th-btn">
+            <span class="th-btn__label">{{ block.settings.button_label }}</span>
+            <span class="th-btn__icon">
+                <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M7.99967 1.3335L14.6663 8.00016L7.99967 14.6668M14.6663 8.00016H1.33301"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+            </span>
+            </a>
+        {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="page-width">
+  <div class="title-block why-nd__intro">
+    {% if section.settings.eyebrow %}
+      <h4>{{ section.settings.eyebrow }}</h4>
+    {% endif %}
+    {% if section.settings.heading %}
+      <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.description %}
+      <p>{{ section.settings.description }}</p>
+    {% endif %}
+  </div>
+
+  <div class="grid grid--uniform grid--2-col grid--2-col-tablet grid--4-col-desktop why-nd__grid">
+    {% for block in section.blocks %}
+      <div class="grid__item">
+        <div class="why-nd__item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon %}
+            <div class="why-nd__icon">
+              <img src="{{ block.settings.icon | img_url: '120x' }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+            </div>
+          {% endif %}
+          <div class="why-nd__content">
+            {% if block.settings.title %}
+              <h3>{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.description %}
+              <p>{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ND Why Nuovaderm",
+  "tag": "section",
+  "class": "section why-nd",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why Nuovaderm"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Shop Nuovaderm?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Genuine Products"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Authentic products from trusted sources."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Why Nuovaderm",
+      "blocks": [
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Genuine Products",
+            "description": "Authentic products from trusted sources."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Fast U.S. Shipping",
+            "description": "Orders fulfilled quickly from the U.S."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Simple Guidance",
+            "description": "Clear information to help customers choose."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "title": "Customer Support",
+            "description": "Help before and after purchase."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

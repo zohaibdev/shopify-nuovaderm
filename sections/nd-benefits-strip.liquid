@@ -1,0 +1,64 @@
+<div class="page-width">
+  <div class="benefits-strip__wrapper">
+    <div class="grid grid--2-col grid--4-col-desktop">
+      {% for block in section.blocks %}
+        <div class="grid__item">
+          <div class="benefits-strip__item">
+            {% if block.settings.icon %}
+              <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.label }}">
+            {% endif %}
+            <h4>{{ block.settings.label }}</h4>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "ND Benefits Strip",
+  "tag": "section",
+  "class": "section benefits-strip",
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Fast Shipping"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Benefits Strip",
+      "blocks": [
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

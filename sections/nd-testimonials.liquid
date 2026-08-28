@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.0.5/swiper-bundle.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.0.5/swiper-bundle.min.js"></script>
+
+{%- assign hide_bg_class = "" -%}
+
+{%- if section.settings.remove_bg == true -%}
+    {%- assign hide_bg_class = "testi__wrapper--rmbg" -%}
+{%- endif -%}
+
+<div class="testi__wrapper {{ hide_bg_class }}">
+    <div class="page-width">
+        <div class="title-block">
+            {%- if section.settings.subtitle -%}
+                <h4>{{ section.settings.subtitle }}</h4>
+            {%- endif -%}
+            {%- if section.settings.title -%}
+                <h2>{{ section.settings.title }}</h2>
+            {%- endif -%}
+        </div>
+        <div class="testi__reviews">
+            <div class="swiper customerTestimonials">
+                <div class="swiper-wrapper">
+                    {%- for block in section.blocks -%}
+                        <div class="swiper-slide">
+                            <div class="testi__item">
+                                <div class="testi__item-stars">
+                                    <svg width="130" height="26" viewBox="0 0 130 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.0593 2.60871C12.377 1.72767 13.623 1.72767 13.9407 2.60871L15.9026 8.04934C16.0416 8.43485 16.4018 8.69653 16.8114 8.70961L22.592 8.89425C23.5281 8.92415 23.9131 10.1092 23.1734 10.6836L18.6053 14.2307C18.2816 14.4821 18.1441 14.9055 18.2582 15.2991L19.8689 20.8538C20.1297 21.7533 19.1217 22.4857 18.3468 21.9597L13.5617 18.7113C13.2226 18.4811 12.7774 18.4811 12.4383 18.7113L7.6532 21.9597C6.87831 22.4857 5.87027 21.7533 6.1311 20.8538L7.74181 15.2991C7.85594 14.9055 7.71837 14.4821 7.39469 14.2307L2.8266 10.6836C2.08686 10.1092 2.47189 8.92415 3.40799 8.89425L9.1886 8.70961C9.5982 8.69653 9.95837 8.43486 10.0974 8.04934L12.0593 2.60871Z" fill="#B4CE1F"/>
+                                        <path d="M38.0593 2.60871C38.377 1.72767 39.623 1.72767 39.9407 2.60871L41.9026 8.04934C42.0416 8.43485 42.4018 8.69653 42.8114 8.70961L48.592 8.89425C49.5281 8.92415 49.9131 10.1092 49.1734 10.6836L44.6053 14.2307C44.2816 14.4821 44.1441 14.9055 44.2582 15.2991L45.8689 20.8538C46.1297 21.7533 45.1217 22.4857 44.3468 21.9597L39.5617 18.7113C39.2226 18.4811 38.7774 18.4811 38.4383 18.7113L33.6532 21.9597C32.8783 22.4857 31.8703 21.7533 32.1311 20.8538L33.7418 15.2991C33.8559 14.9055 33.7184 14.4821 33.3947 14.2307L28.8266 10.6836C28.0869 10.1092 28.4719 8.92415 29.408 8.89425L35.1886 8.70961C35.5982 8.69653 35.9584 8.43486 36.0974 8.04934L38.0593 2.60871Z" fill="#B4CE1F"/>
+                                        <path d="M64.0593 2.60871C64.377 1.72767 65.623 1.72767 65.9407 2.60871L67.9026 8.04934C68.0416 8.43485 68.4018 8.69653 68.8114 8.70961L74.592 8.89425C75.5281 8.92415 75.9131 10.1092 75.1734 10.6836L70.6053 14.2307C70.2816 14.4821 70.1441 14.9055 70.2582 15.2991L71.8689 20.8538C72.1297 21.7533 71.1217 22.4857 70.3468 21.9597L65.5617 18.7113C65.2226 18.4811 64.7774 18.4811 64.4383 18.7113L59.6532 21.9597C58.8783 22.4857 57.8703 21.7533 58.1311 20.8538L59.7418 15.2991C59.8559 14.9055 59.7184 14.4821 59.3947 14.2307L54.8266 10.6836C54.0869 10.1092 54.4719 8.92415 55.408 8.89425L61.1886 8.70961C61.5982 8.69653 61.9584 8.43486 62.0974 8.04934L64.0593 2.60871Z" fill="#B4CE1F"/>
+                                        <path d="M90.0593 2.60871C90.377 1.72767 91.623 1.72767 91.9407 2.60871L93.9026 8.04934C94.0416 8.43485 94.4018 8.69653 94.8114 8.70961L100.592 8.89425C101.528 8.92415 101.913 10.1092 101.173 10.6836L96.6053 14.2307C96.2816 14.4821 96.1441 14.9055 96.2582 15.2991L97.8689 20.8538C98.1297 21.7533 97.1217 22.4857 96.3468 21.9597L91.5617 18.7113C91.2226 18.4811 90.7774 18.4811 90.4383 18.7113L85.6532 21.9597C84.8783 22.4857 83.8703 21.7533 84.1311 20.8538L85.7418 15.2991C85.8559 14.9055 85.7184 14.4821 85.3947 14.2307L80.8266 10.6836C80.0869 10.1092 80.4719 8.92415 81.408 8.89425L87.1886 8.70961C87.5982 8.69653 87.9584 8.43486 88.0974 8.04934L90.0593 2.60871Z" fill="#B4CE1F"/>
+                                        <path d="M116.059 2.60871C116.377 1.72767 117.623 1.72767 117.941 2.60871L119.903 8.04934C120.042 8.43485 120.402 8.69653 120.811 8.70961L126.592 8.89425C127.528 8.92415 127.913 10.1092 127.173 10.6836L122.605 14.2307C122.282 14.4821 122.144 14.9055 122.258 15.2991L123.869 20.8538C124.13 21.7533 123.122 22.4857 122.347 21.9597L117.562 18.7113C117.223 18.4811 116.777 18.4811 116.438 18.7113L111.653 21.9597C110.878 22.4857 109.87 21.7533 110.131 20.8538L111.742 15.2991C111.856 14.9055 111.718 14.4821 111.395 14.2307L106.827 10.6836C106.087 10.1092 106.472 8.92415 107.408 8.89425L113.189 8.70961C113.598 8.69653 113.958 8.43486 114.097 8.04934L116.059 2.60871Z" fill="#B4CE1F"/>
+                                    </svg>
+                                </div>
+                                {%- if block.settings.review -%}
+                                    <div class="testi__item-review">
+                                        <p>{{ block.settings.review }}</p>
+                                    </div>
+                                {%- endif -%}
+                                <div class="testi__item-author">
+                                    {%- if block.settings.image -%}
+                                        {%- assign image = block.settings.image -%}
+                                        {{ image | image_url: width: image.width | image_tag: class: 'testi__item-image', loading: 'lazy' }}
+                                    {%- endif -%}
+                                    {%- if block.settings.name -%}
+                                        <p class="testi__item-name">{{ block.settings.name }}</p>
+                                    {%- endif -%}
+                                    {%- if block.settings.position -%}
+                                        <p class="testi__item-position">{{ block.settings.position }}</p>
+                                    {%- endif -%}
+                                </div>
+                                <div class="testi__item-quote">
+                                    <svg width="64" height="56" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g opacity="0.3">
+                                            <path d="M0 34.6138C0 24.7523 2.27008 16.9618 6.81024 11.2421C11.4144 5.52243 18.0967 1.77507 26.8573 0V10.2559C20.3348 12.3597 15.9545 15.9756 13.7164 21.1036C12.5654 23.7991 12.0858 26.5931 12.2776 29.4858H27.3369V55.4216H0V34.6138Z" fill="url(#paint0_linear_336_52)"/>
+                                            <path d="M42.8605 11.1435C38.1924 16.7974 35.8584 24.6208 35.8584 34.6138V55.4216H63.1953V29.4858H48.136C47.8802 26.8561 48.3918 24.1278 49.6707 21.3008C51.9088 15.9756 56.2572 12.294 62.7157 10.2559V0C54.2109 1.77507 47.5925 5.48956 42.8605 11.1435Z" fill="url(#paint1_linear_336_52)"/>
+                                        </g>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_336_52" x1="13.6684" y1="0" x2="13.6684" y2="55.4216" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#1E395E"/>
+                                                <stop offset="1" stop-color="white" stop-opacity="0"/>
+                                            </linearGradient>
+                                            <linearGradient id="paint1_linear_336_52" x1="49.5268" y1="0" x2="49.5268" y2="55.4216" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#1E395E"/>
+                                                <stop offset="1" stop-color="white" stop-opacity="0"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    {%- endfor -%}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  const swiper = new Swiper('.customerTestimonials', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 4,
+      },
+    },
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "testi",
+  "tag": "section",
+  "settings": [
+    {
+        "type":"checkbox",
+        "id": "remove_bg",
+        "label": "Remove Background"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The Nuovaderm Experience"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Testimonies"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Review",
+      "type": "review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review",
+          "default": "\"Solid device, quiet motor, and the cartridge lock is clean. Wish I'd started with the Results Bundle from day one.\""
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position",
+          "default": "Verified Buyer"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

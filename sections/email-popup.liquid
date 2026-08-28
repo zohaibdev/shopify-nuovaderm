@@ -1,0 +1,249 @@
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.heading != blank -%}
+  <modal-dialog
+    id="EmailPopup-{{ section.id }}"
+    class="email-popup"
+    data-delay="{{ section.settings.delay_seconds | times: 1000 }}"
+    data-exit-intent="{{ section.settings.enable_exit_intent }}"
+    data-suppress-days="{{ section.settings.suppress_days }}"
+  >
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="EmailPopupHeading-{{ section.id }}"
+      class="email-popup__dialog"
+      tabindex="-1"
+    >
+      <button
+        id="ModalClose-{{ section.id }}"
+        type="button"
+        class="email-popup__close"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </button>
+
+      <div class="email-popup__content">
+        {% form 'customer', class: 'newsletter-form' %}
+          {%- if form.posted_successfully? -%}
+            <div class="email-popup__success" data-popup-success>
+              <span class="svg-wrapper email-popup__success-icon">
+                {{- 'icon-success.svg' | inline_asset_content -}}
+              </span>
+              {%- if section.settings.success_heading != blank -%}
+                <h2 id="EmailPopupHeading-{{ section.id }}" class="email-popup__heading">
+                  {{- section.settings.success_heading -}}
+                </h2>
+              {%- endif -%}
+              {%- if section.settings.success_message != blank -%}
+                <p class="email-popup__subheading">{{ section.settings.success_message }}</p>
+              {%- endif -%}
+              {%- if section.settings.discount_code != blank -%}
+                <div class="email-popup__code">
+                  <span class="email-popup__code-value" data-copy-code-value>{{ section.settings.discount_code }}</span>
+                  <button
+                    type="button"
+                    class="email-popup__code-copy"
+                    data-copy-code
+                    data-copy-label="{{ section.settings.copy_button_label }}"
+                    data-copied-label="{{ section.settings.copied_label }}"
+                  >
+                    {{- section.settings.copy_button_label -}}
+                  </button>
+                </div>
+                <p class="email-popup__code-hint" data-copy-feedback aria-live="polite"></p>
+              {%- endif -%}
+              {%- if section.settings.success_button_label != blank -%}
+                <a
+                  href="{{ section.settings.success_button_link | default: routes.all_products_collection_url }}"
+                  class="th-btn email-popup__cta"
+                >
+                  <span class="th-btn__label">{{ section.settings.success_button_label }}</span>
+                </a>
+              {%- endif -%}
+            </div>
+          {%- else -%}
+            <input type="hidden" name="contact[tags]" value="newsletter,popup-signup">
+            {%- if section.settings.eyebrow != blank -%}
+              <span class="email-popup__eyebrow">{{ section.settings.eyebrow }}</span>
+            {%- endif -%}
+            <h2 id="EmailPopupHeading-{{ section.id }}" class="email-popup__heading">{{ section.settings.heading }}</h2>
+            {%- if section.settings.subheading != blank -%}
+              <p class="email-popup__subheading">{{ section.settings.subheading }}</p>
+            {%- endif -%}
+            <div class="newsletter-form__field-wrapper">
+              <div class="vip-nws__field">
+                <input
+                  id="EmailPopupEmail-{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  class="vip-nws__field-input"
+                  value="{{ form.email }}"
+                  aria-label="{{ section.settings.placeholder }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
+                    autofocus
+                    aria-invalid="true"
+                    aria-describedby="EmailPopupError-{{ section.id }}"
+                  {% endif %}
+                  placeholder="{{ section.settings.placeholder }}"
+                  required
+                >
+                <button
+                  type="submit"
+                  class="th-btn vip-nws__field-button"
+                  name="commit"
+                  aria-label="{{ section.settings.button_label }}"
+                >
+                  {{ section.settings.button_label }}
+                </button>
+              </div>
+              {%- if form.errors -%}
+                <small class="newsletter-form__message form__message" id="EmailPopupError-{{ section.id }}">
+                  <span class="svg-wrapper">
+                    {{- 'icon-error.svg' | inline_asset_content -}}
+                  </span>
+                  {{- form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email -}}
+                </small>
+              {%- endif -%}
+            </div>
+            {%- if section.settings.dismiss_label != blank -%}
+              <button type="button" class="email-popup__dismiss" data-popup-dismiss>
+                {{- section.settings.dismiss_label -}}
+              </button>
+            {%- endif -%}
+          {%- endif -%}
+        {% endform %}
+      </div>
+    </div>
+  </modal-dialog>
+  <script src="{{ 'email-popup.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "ND Email Popup",
+  "tag": "section",
+  "class": "section email-popup-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Join Nuovaderm"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stay In The Loop"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "New products, special offers and skincare tips — straight to your inbox."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email field placeholder",
+      "default": "your@email.com"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Join"
+    },
+    {
+      "type": "text",
+      "id": "dismiss_label",
+      "label": "Dismiss link label",
+      "info": "Leave blank to hide the text dismiss link. Customers can still close the popup with the X button.",
+      "default": "No thanks"
+    },
+    {
+      "type": "header",
+      "content": "After signup"
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "Discount code to reveal",
+      "info": "Must exactly match an active discount code created in Shopify Admin → Discounts. Leave blank to hide the code block.",
+      "default": "FirstOrder15%Off"
+    },
+    {
+      "type": "text",
+      "id": "success_heading",
+      "label": "Success heading",
+      "default": "You're In!"
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Here's your code for 15% off your first order. It's already yours — just apply it at checkout."
+    },
+    {
+      "type": "text",
+      "id": "copy_button_label",
+      "label": "Copy button label",
+      "default": "Copy Code"
+    },
+    {
+      "type": "text",
+      "id": "copied_label",
+      "label": "Copied confirmation label",
+      "default": "Copied!"
+    },
+    {
+      "type": "text",
+      "id": "success_button_label",
+      "label": "Success button label",
+      "default": "Start Shopping"
+    },
+    {
+      "type": "url",
+      "id": "success_button_link",
+      "label": "Success button link",
+      "info": "Defaults to the all-products collection if left blank."
+    },
+    {
+      "type": "range",
+      "id": "delay_seconds",
+      "label": "Show after (seconds)",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_exit_intent",
+      "label": "Also show on exit intent (desktop)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "suppress_days",
+      "label": "Days to hide after a visitor closes it",
+      "min": 1,
+      "max": 60,
+      "step": 1,
+      "default": 7
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Email Popup"
+    }
+  ]
+}
+{% endschema %}

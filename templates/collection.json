@@ -1,0 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "padding_top": 72,
+        "padding_bottom": 80
+      }
+    },
+    "nd_testimonials_BLrgBT": {
+      "type": "nd-testimonials",
+      "blocks": {
+        "review_B8UyP9": {
+          "type": "review",
+          "settings": {
+            "review": "\"Solid device, quiet motor, and the cartridge lock is clean. Wish I'd started with the Results Bundle from day one.\"",
+            "name": "Jordan K",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_aiBqCz": {
+          "type": "review",
+          "settings": {
+            "review": "\"Complimentary Derma Stamp was a lovely touch. The whole experience felt considered — from the packaging to the aftercare notes.\"",
+            "name": "Priya S.",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_aYFizy": {
+          "type": "review",
+          "settings": {
+            "review": "\"Six weeks in and the difference in my skin texture is undeniable. The M8S feels genuinely professional — nothing like the cheap dupes I tried before.\"",
+            "name": "Alina R.",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_fFMdhY": {
+          "type": "review",
+          "settings": {
+            "review": "\"The depth dial makes a real difference. I feel in control the entire time, and the guidance from Nuovaderm made the routine easy to follow.\"",
+            "name": "Marcus T",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_iDHa6J": {
+          "type": "review",
+          "settings": {
+            "review": "\"Solid device, quiet motor, and the cartridge lock is clean. Wish I'd started with the Results Bundle from day one.\"",
+            "name": "Jordan K",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        }
+      },
+      "block_order": [
+        "review_B8UyP9",
+        "review_aiBqCz",
+        "review_aYFizy",
+        "review_fFMdhY",
+        "review_iDHa6J"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "remove_bg": false,
+        "title": "The Nuovaderm Experience",
+        "subtitle": "Testimonies"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "nd_testimonials_BLrgBT"
+  ]
+}

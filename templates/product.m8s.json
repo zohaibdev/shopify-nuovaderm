@@ -1,0 +1,507 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "Nuovaderm · Advanced",
+            "text_style": "body",
+            "extra_classes": "prd-vendor"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "extra_classes": "prd-price"
+          }
+        },
+        "text_yrL6PA": {
+          "type": "text",
+          "settings": {
+            "text": "Designed for safe at-home use.",
+            "text_style": "body",
+            "extra_classes": ""
+          }
+        },
+        "plan_selector_pHBxJD": {
+          "type": "plan_selector",
+          "settings": {
+            "heading": "",
+            "subheading": "",
+            "popular_badge_label": "Most Popular",
+            "layout": "list",
+            "show_image": false,
+            "extra_classes": ""
+          }
+        },
+        "addon_products_MYMjat": {
+          "type": "addon_products",
+          "disabled": true,
+          "settings": {
+            "addon_product": "{{ product.metafields.custom.bunlde_addon_product.value }}",
+            "selection_mode": "single",
+            "heading": "",
+            "subheading": "",
+            "main_product_title": "M8 Essential",
+            "this_product_content": "{{ product.metafields.custom.variation_box_content | metafield_tag }}",
+            "addon_title": "Results Bundle",
+            "addon_content": "{{ block.settings.addon_product.metafields.custom.variation_box_content | metafield_tag }}",
+            "badge_label": "Most Popular",
+            "layout": "grid",
+            "show_image": false,
+            "button_label": "Add To Cart",
+            "show_button_price": true,
+            "extra_classes": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "extra_classes": ""
+          }
+        },
+        "icon_with_text_Nx434z": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/icon-1.svg",
+            "heading_1": "Fast Shipping",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/icon-2.svg",
+            "heading_2": "30-Day Money-Back Guarantee",
+            "icon_3": "truck",
+            "image_3": "shopify://shop_images/icon-3.svg",
+            "heading_3": "Discreet Packaging",
+            "icon_4": "heart",
+            "image_4": "shopify://shop_images/icon-4.svg",
+            "heading_4": "Authorized Distributor"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "text_yrL6PA",
+        "plan_selector_pHBxJD",
+        "addon_products_MYMjat",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "icon_with_text_Nx434z"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 80
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "nd_anatomy_gBcrDj": {
+      "type": "nd-anatomy",
+      "name": "Anatomy",
+      "settings": {
+        "image": "shopify://shop_images/Gemini_Generated_Image_nqxmaknqxmaknqxm.jpg",
+        "subtitle": "Anatomy",
+        "title": "Built for real skin results, not guesswork.",
+        "content": "Every feature of the M8S is engineered to give you professional-level control and maximum skincare performance from home.",
+        "button_label": "Find Your Routine",
+        "button_link": ""
+      }
+    },
+    "nd_authenticity_MFc4Ey": {
+      "type": "nd-authenticity",
+      "blocks": {
+        "step_yXp74G": {
+          "type": "step",
+          "settings": {
+            "label": "Scratch"
+          }
+        },
+        "step_qqXL9x": {
+          "type": "step",
+          "settings": {
+            "label": "Verify"
+          }
+        },
+        "step_TX4d77": {
+          "type": "step",
+          "settings": {
+            "label": "Confirm"
+          }
+        }
+      },
+      "block_order": [
+        "step_yXp74G",
+        "step_qqXL9x",
+        "step_TX4d77"
+      ],
+      "name": "ND Authenticity",
+      "settings": {
+        "image": "shopify://shop_images/image_07130275-93a8-4c04-8e6c-e370341fe97c.jpg",
+        "eyebrow": "",
+        "heading": "Genuine Dr. Pen. Verify It Yourself.",
+        "description": "Every Dr. Pen device we sell includes a security authentication code. Scratch the security label on the packaging and verify the code directly through Dr. Pen's authentication website.",
+        "button_label": "Verify Authenticity",
+        "button_link": ""
+      }
+    },
+    "cartridge_tabs_KYttAN": {
+      "type": "cartridge-tabs",
+      "blocks": {
+        "cartridge_type_QcRGwh": {
+          "type": "cartridge_type",
+          "settings": {
+            "tab_label": "12-Pin",
+            "name": "12-Pin",
+            "description": "Gentle absorption & skincare infusion — ideal for daily glow rituals and product delivery.",
+            "depth": "0.15mm",
+            "frequency": "Daily",
+            "downtime": "None",
+            "image": "shopify://shop_images/dr-pen-m8s-cartridges-10-pack-12-18-24-36-42-nano-round-nano-square-getglowing-skincare__35356__33551_26dd382d-0858-4f01-b571-f66f9d7554a6.jpg",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/dr-pen-m8s-a8s-a9-a11-cartridges-10-pack"
+          }
+        },
+        "cartridge_type_wzbACt": {
+          "type": "cartridge_type",
+          "settings": {
+            "tab_label": "18-Pin",
+            "name": "18-Pin",
+            "description": "Best for daily glow rituals and beginners.",
+            "depth": "0.15mm",
+            "frequency": "Daily",
+            "downtime": "None",
+            "image": "shopify://shop_images/dr-pen-m8s-cartridges-10-pack-12-18-24-36-42-nano-round-nano-square-getglowing-skincare__35356__33551_26dd382d-0858-4f01-b571-f66f9d7554a6.jpg",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/dr-pen-m8s-a8s-a9-a11-cartridges-10-pack"
+          }
+        },
+        "cartridge_type_g36pJA": {
+          "type": "cartridge_type",
+          "disabled": true,
+          "settings": {
+            "tab_label": "24-Pin",
+            "name": "24-Pin",
+            "description": "Best for daily glow rituals and beginners.",
+            "depth": "0.15mm",
+            "frequency": "Daily",
+            "downtime": "None",
+            "image": "shopify://shop_images/image1.png",
+            "button_label": "Out Of Stock",
+            "button_link": ""
+          }
+        },
+        "cartridge_type_tdQciE": {
+          "type": "cartridge_type",
+          "settings": {
+            "tab_label": "36-Pin",
+            "name": "36-Pin",
+            "description": "Best for daily glow rituals and beginners.",
+            "depth": "0.15mm",
+            "frequency": "Daily",
+            "downtime": "None",
+            "image": "shopify://shop_images/dr-pen-m8s-cartridges-10-pack-12-18-24-36-42-nano-round-nano-square-getglowing-skincare__35356__33551_26dd382d-0858-4f01-b571-f66f9d7554a6.jpg",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/dr-pen-m8s-a8s-a9-a11-cartridges-10-pack"
+          }
+        },
+        "cartridge_type_zBpP7J": {
+          "type": "cartridge_type",
+          "settings": {
+            "tab_label": "42 Pin",
+            "name": "42-Pin",
+            "description": "Best for daily glow rituals and beginners.",
+            "depth": "0.15mm",
+            "frequency": "Daily",
+            "downtime": "None",
+            "image": "shopify://shop_images/dr-pen-m8s-cartridges-10-pack-12-18-24-36-42-nano-round-nano-square-getglowing-skincare__35356__33551_26dd382d-0858-4f01-b571-f66f9d7554a6.jpg",
+            "button_label": "Out Of Stock",
+            "button_link": "shopify://products/dr-pen-m8s-a8s-a9-a11-cartridges-10-pack"
+          }
+        },
+        "cartridge_type_ti4XFR": {
+          "type": "cartridge_type",
+          "settings": {
+            "tab_label": "Round Nano",
+            "name": "Round Nano",
+            "description": "Best for daily glow rituals and beginners.",
+            "depth": "0.15mm",
+            "frequency": "Daily",
+            "downtime": "None",
+            "image": "shopify://shop_images/dr-pen-m8s-cartridges-10-pack-12-18-24-36-42-nano-round-nano-square-getglowing-skincare__35356__33551_26dd382d-0858-4f01-b571-f66f9d7554a6.jpg",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/dr-pen-m8s-a8s-a9-a11-cartridges-10-pack"
+          }
+        }
+      },
+      "block_order": [
+        "cartridge_type_QcRGwh",
+        "cartridge_type_wzbACt",
+        "cartridge_type_g36pJA",
+        "cartridge_type_tdQciE",
+        "cartridge_type_zBpP7J",
+        "cartridge_type_ti4XFR"
+      ],
+      "name": "ND Cartridge Tabs",
+      "settings": {
+        "eyebrow": "The Engine Room",
+        "heading": "Cartridges are where results are made.",
+        "description": "The cartridge determines how the device interacts with your skin. Choose the right one, and everything else follows."
+      }
+    },
+    "nd_steps_QdkqWj": {
+      "type": "nd-steps",
+      "blocks": {
+        "step_JFL9aF": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_py7seupy7seupy7s.jpg",
+            "label": "Step",
+            "title": "Prep & Cleanse.",
+            "text": "Start with clean, bare skin. No actives — just a gentle cleanse and a calm base."
+          }
+        },
+        "step_wmWtF6": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_xca551xca551xca5.jpg",
+            "label": "Step",
+            "title": "Select Your Cartridge & Treat.",
+            "text": "Choose the right cartridge for your goal, then treat with steady, guided passes across the skin."
+          }
+        },
+        "step_7L76Uk": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_8tclt38tclt38tcl.jpg",
+            "label": "Step",
+            "title": "Hydrate & Recover.",
+            "text": "Follow with a barrier-supportive serum. Let your skin rest and repair overnight."
+          }
+        }
+      },
+      "block_order": [
+        "step_JFL9aF",
+        "step_wmWtF6",
+        "step_7L76Uk"
+      ],
+      "name": "ND Steps",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "show_gift": true,
+        "gift_image": "shopify://shop_images/Gemini_Generated_Image_f28t0ff28t0ff28t.jpg",
+        "gift_label": "Complimentary Gift",
+        "gift_heading": "Complimentary Derma Stamp Included With Eligible Orders.",
+        "gift_text": "To support your skincare journey between treatments, we include a complimentary derma stamp to ensure you have everything you need for consistent, long-term skin maintenance."
+      }
+    },
+    "nd_testimonials_BLrgBT": {
+      "type": "nd-testimonials",
+      "blocks": {
+        "review_B8UyP9": {
+          "type": "review",
+          "settings": {
+            "review": "\"Solid device, quiet motor, and the cartridge lock is clean. Wish I'd started with the Results Bundle from day one.\"",
+            "name": "Jordan K",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_aiBqCz": {
+          "type": "review",
+          "settings": {
+            "review": "\"Complimentary Derma Stamp was a lovely touch. The whole experience felt considered — from the packaging to the aftercare notes.\"",
+            "name": "Priya S.",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_aYFizy": {
+          "type": "review",
+          "settings": {
+            "review": "\"Six weeks in and the difference in my skin texture is undeniable. The M8S feels genuinely professional — nothing like the cheap dupes I tried before.\"",
+            "name": "Alina R.",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_fFMdhY": {
+          "type": "review",
+          "settings": {
+            "review": "\"The depth dial makes a real difference. I feel in control the entire time, and the guidance from Nuovaderm made the routine easy to follow.\"",
+            "name": "Marcus T",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        },
+        "review_iDHa6J": {
+          "type": "review",
+          "settings": {
+            "review": "\"Solid device, quiet motor, and the cartridge lock is clean. Wish I'd started with the Results Bundle from day one.\"",
+            "name": "Jordan K",
+            "position": "Verified Buyer",
+            "image": "shopify://shop_images/image_5b8bcec2-fae3-46c9-b017-caf3d609f425.png"
+          }
+        }
+      },
+      "block_order": [
+        "review_B8UyP9",
+        "review_aiBqCz",
+        "review_aYFizy",
+        "review_fFMdhY",
+        "review_iDHa6J"
+      ],
+      "disabled": true,
+      "name": "Testimonials",
+      "settings": {
+        "remove_bg": true,
+        "title": "The Nuovaderm Experience",
+        "subtitle": "Testimonies"
+      }
+    },
+    "nd_faq_cXBPDP": {
+      "type": "nd-faq",
+      "blocks": {
+        "faq_Jz9tMk": {
+          "type": "faq",
+          "settings": {
+            "open": true,
+            "question": "Does it hurt?",
+            "answer": "Most users describe the sensation as a light prickle. The M8S's adjustable depth means you stay in complete control — start shallow and work up as your skin adapts."
+          }
+        },
+        "faq_jPtGLz": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "How often should I use it?",
+            "answer": "It depends on your cartridge and depth. Nano tips can be used daily, while deeper micro-needling passes are best spaced every 4–6 weeks to let the skin fully recover."
+          }
+        },
+        "faq_3NHrJE": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "Which cartridge do I need?",
+            "answer": "Start with Nano or 12-pin cartridges for gentle absorption and daily glow. Move to 24–36 or 42-pin options as you build confidence and target deeper concerns."
+          }
+        },
+        "faq_7pbpik": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "Is this a genuine Dr. Pen device?",
+            "answer": "Yes. Nuovaderm is an authorized distributor, so every device is a genuine Dr. Pen backed by full warranty and support."
+          }
+        },
+        "faq_tKbCLM": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "When will my order ship?",
+            "answer": "Orders are processed within 1–2 business days and shipped in discreet packaging. You'll receive tracking details as soon as your order leaves our warehouse."
+          }
+        },
+        "faq_returns01": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "What if my order arrives damaged or defective?",
+            "answer": "We offer a 30-day money-back guarantee on any item that arrives defective or damaged. Contact us at info@nuovadermbeauty.com within 30 days of delivery and we'll make it right with a full refund."
+          }
+        }
+      },
+      "block_order": [
+        "faq_Jz9tMk",
+        "faq_jPtGLz",
+        "faq_3NHrJE",
+        "faq_7pbpik",
+        "faq_tKbCLM",
+        "faq_returns01"
+      ],
+      "name": "ND FAQ",
+      "settings": {
+        "is_heading_h1": false,
+        "eyebrow": "FAQs",
+        "heading": "Frequently Asked Questions"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "nd_anatomy_gBcrDj",
+    "nd_authenticity_MFc4Ey",
+    "cartridge_tabs_KYttAN",
+    "nd_steps_QdkqWj",
+    "nd_testimonials_BLrgBT",
+    "nd_faq_cXBPDP"
+  ]
+}

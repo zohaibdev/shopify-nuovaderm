@@ -1,0 +1,232 @@
+<div class="page-width">
+  <div class="cartridge-tabs__wrapper" id="CartridgeTabs-{{ section.id }}">
+    <div class="cartridge-tabs__top">
+      <div class="cartridge-tabs__intro">
+        {% if section.settings.eyebrow %}
+          <h4>{{ section.settings.eyebrow }}</h4>
+        {% endif %}
+        {% if section.settings.heading %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
+      <div class="cartridge-tabs__nav-col">
+        {% if section.settings.description %}
+          <p>{{ section.settings.description }}</p>
+        {% endif %}
+        <div class="cartridge-tabs__nav" role="tablist">
+          {% for block in section.blocks %}
+            <button
+              type="button"
+              class="cartridge-tabs__tab{% if forloop.first %} is-active{% endif %}"
+              id="CartridgeTab-{{ block.id }}"
+              data-tab-target="CartridgePanel-{{ block.id }}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            >
+              {{ block.settings.tab_label }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="cartridge-tabs__divider"></div>
+
+    <div class="cartridge-tabs__panels">
+      {% for block in section.blocks %}
+        <div
+          class="cartridge-tabs__panel{% if forloop.first %} is-active{% endif %}"
+          id="CartridgePanel-{{ block.id }}"
+          role="tabpanel"
+          aria-labelledby="CartridgeTab-{{ block.id }}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="cartridge-tabs__content">
+            {% if block.settings.name %}
+              <h3>{{ block.settings.name }}</h3>
+            {% endif %}
+            {% if block.settings.description %}
+              <p>{{ block.settings.description }}</p>
+            {% endif %}
+            <div class="cartridge-tabs__specs">
+              {% if block.settings.depth %}
+                <div class="cartridge-tabs__spec">
+                  <span class="cartridge-tabs__spec-label">Depth</span>
+                  <span class="cartridge-tabs__spec-value">{{ block.settings.depth }}</span>
+                </div>
+              {% endif %}
+              {% if block.settings.frequency %}
+                <div class="cartridge-tabs__spec">
+                  <span class="cartridge-tabs__spec-label">Level</span>
+                  <span class="cartridge-tabs__spec-value">{{ block.settings.frequency }}</span>
+                </div>
+              {% endif %}
+              {% if block.settings.downtime %}
+                <div class="cartridge-tabs__spec">
+                  <span class="cartridge-tabs__spec-label">Downtime</span>
+                  <span class="cartridge-tabs__spec-value">{{ block.settings.downtime }}</span>
+                </div>
+              {% endif %}
+            </div>
+            {% if block.settings.button_label and block.settings.button_link %}
+              <a href="{{ block.settings.button_link }}" class="th-btn">
+                <span class="th-btn__label">{{ block.settings.button_label }}</span>
+                <span class="th-btn__icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.99967 1.3335L14.6663 8.00016L7.99967 14.6668M14.6663 8.00016H1.33301" stroke="#7E3823" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </a>
+            {% else %}
+              <a href="javascript:void(0)" class="th-btn th-btn--disabled">
+                <span class="th-btn__label">{{ block.settings.button_label }}</span>
+                <span class="th-btn__icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.99967 1.3335L14.6663 8.00016L7.99967 14.6668M14.6663 8.00016H1.33301" stroke="#7E3823" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </a>
+            {% endif %}
+          </div>
+          {% if block.settings.image %}
+            <div class="cartridge-tabs__image">
+              <img src="{{ block.settings.image | img_url: '700x' }}" alt="{{ block.settings.name }}" loading="lazy">
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('CartridgeTabs-{{ section.id }}');
+    if (!root) return;
+
+    var tabs = root.querySelectorAll('.cartridge-tabs__tab');
+    var panels = root.querySelectorAll('.cartridge-tabs__panel');
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var targetId = tab.getAttribute('data-tab-target');
+
+        tabs.forEach(function (t) {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+
+        panels.forEach(function (panel) {
+          panel.classList.toggle('is-active', panel.id === targetId);
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "ND Cartridge Tabs",
+  "tag": "section",
+  "class": "nd-cartridge-tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Engine Room"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Cartridges are where results are made."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "The right cartridge depth and cadence creates a safe and effective routine."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cartridge_type",
+      "name": "Cartridge Type",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Label",
+          "default": "12-pin"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Type Name",
+          "default": "Nano Tips"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Best for daily glow rituals and beginners."
+        },
+        {
+          "type": "text",
+          "id": "depth",
+          "label": "Depth",
+          "default": "0.15mm"
+        },
+        {
+          "type": "text",
+          "id": "frequency",
+          "label": "Frequency",
+          "default": "Daily"
+        },
+        {
+          "type": "text",
+          "id": "downtime",
+          "label": "Downtime",
+          "default": "None"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Cartridge Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Cartridge Tabs",
+      "blocks": [
+        {
+          "type": "cartridge_type"
+        },
+        {
+          "type": "cartridge_type"
+        },
+        {
+          "type": "cartridge_type"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,260 @@
+<footer class="nd-footer">
+  <div class="page-width">
+    <div class="nd-footer__top">
+      {% for block in section.blocks %}
+        {% case block.type %}
+
+          {% when 'about' %}
+            <div class="nd-footer__col nd-footer__about" {{ block.shopify_attributes }}>
+              <h3 class="nd-footer__heading">{{ block.settings.heading }}</h3>
+              {% if block.settings.text != blank %}
+                <div class="nd-footer__about-text rte">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+
+          {% when 'link_list' %}
+            <div class="nd-footer__col nd-footer__links" {{ block.shopify_attributes }}>
+              <h3 class="nd-footer__heading">{{ block.settings.heading }}</h3>
+              {% if block.settings.menu != blank %}
+                <ul class="nd-footer__menu">
+                  {% for link in block.settings.menu.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+
+          {% when 'contact' %}
+            <div class="nd-footer__col nd-footer__contact" {{ block.shopify_attributes }}>
+              <h3 class="nd-footer__heading">{{ block.settings.heading }}</h3>
+              {% if block.settings.email != blank %}
+                <a class="nd-footer__contact-item" href="mailto:{{ block.settings.email }}">
+                  <span class="nd-footer__contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" fill="currentColor"/>
+                      <path d="M4 7l8 5.5L20 7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{{ block.settings.email }}</span>
+                </a>
+              {% endif %}
+            </div>
+
+          {% when 'newsletter' %}
+            <div class="nd-footer__col nd-footer__newsletter" {{ block.shopify_attributes }}>
+              <h3 class="nd-footer__heading">{{ block.settings.heading }}</h3>
+              {% form 'customer', class: 'nd-footer__form' %}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="nd-footer__field">
+                  <input
+                    id="NdFooterNewsletter--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="nd-footer__field-input"
+                    value="{{ form.email }}"
+                    aria-label="{{ block.settings.placeholder }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                    {% endif %}
+                    placeholder="{{ block.settings.placeholder }}"
+                    required
+                  >
+                </div>
+                <button type="submit" class="th-btn nd-footer__submit" name="commit">
+                  {{ block.settings.button_label }}
+                </button>
+                {%- if form.errors -%}
+                  <small class="nd-footer__form-message">
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </small>
+                {%- elsif form.posted_successfully? -%}
+                  <small class="nd-footer__form-message nd-footer__form-message--success">
+                    {{- 'newsletter.success' | t -}}
+                  </small>
+                {%- endif -%}
+              {% endform %}
+            </div>
+
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <div class="nd-footer__bottom">
+      <div class="nd-footer__logo">
+        {% if section.settings.logo != blank %}
+          <a href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+            <img
+              src="{{ section.settings.logo | image_url: width: 400 }}"
+              alt="{{ shop.name }}"
+              width="{{ section.settings.logo.width }}"
+              height="{{ section.settings.logo.height }}"
+              loading="lazy"
+            >
+          </a>
+        {% else %}
+          <a href="{{ routes.root_url }}" class="nd-footer__logo-text">{{ shop.name }}</a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_payment_icons %}
+        <div class="nd-footer__payments">
+          {% if section.settings.payment_icons != blank %}
+            <img
+              src="{{ section.settings.payment_icons | image_url: width: 400 }}"
+              alt="Payment icons"
+              width="{{ section.settings.payment_icons.width }}"
+              height="{{ section.settings.payment_icons.height }}"
+              loading="lazy"
+            >
+        {% endif %}
+   
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="nd-footer__copyright">
+      &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }}
+      {%- if section.settings.show_powered_by %} {{ powered_by_link }}{% endif -%}
+    </div>
+  </div>
+</footer>
+
+
+{% schema %}
+{
+  "name": "ND Footer",
+  "tag": "footer",
+  "class": "nd-footer-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_icons",
+      "label": "Payment Icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_powered_by",
+      "label": "Show \"Powered by Shopify\"",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "about",
+      "name": "About",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "About Nuovaderm"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Nuovaderm is your trusted destination for advanced beauty technology and microneedling expertise.</p>"
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Quick Links"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Contact Us"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email",
+          "default": "sales@Nuovaderm.com"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Signup For Newsletter"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Input placeholder",
+          "default": "Enter your e-mail address"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Submit"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Footer",
+      "blocks": [
+        { "type": "about" },
+        {
+          "type": "link_list",
+          "settings": { "heading": "Quick Links" }
+        },
+        { "type": "contact" },
+        {
+          "type": "link_list",
+          "settings": { "heading": "Policies" }
+        },
+        { "type": "newsletter" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,187 @@
+<div class="steps">
+  <div class="steps__wrapper">
+    <div class="page-width">
+      {% if section.settings.eyebrow != blank or section.settings.heading != blank %}
+        <div class="title-block steps__intro">
+          {% if section.settings.eyebrow != blank %}
+            <h4>{{ section.settings.eyebrow }}</h4>
+          {% endif %}
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="grid grid--1-col grid--3-col-tablet steps__cards">
+        {% for block in section.blocks %}
+          <div class="grid__item" {{ block.shopify_attributes }}>
+            <div class="steps__card">
+              {% if block.settings.image %}
+                <div class="steps__card-image">
+                  <img
+                    src="{{ block.settings.image | image_url: width: 600 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    width="600"
+                    loading="lazy">
+                </div>
+              {% endif %}
+              <span class="steps__label">
+                {{ block.settings.label | default: 'Step' }} - {{ forloop.index | prepend: '0' }}
+              </span>
+              {% if block.settings.title != blank %}
+                <h3 class="steps__card-title">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <p class="steps__card-text">{{ block.settings.text }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if section.settings.show_gift %}
+        <div class="steps__gift">
+          {% if section.settings.gift_image %}
+            <div class="steps__gift-image">
+              <img
+                src="{{ section.settings.gift_image | image_url: width: 500 }}"
+                alt="{{ section.settings.gift_heading | escape }}"
+                width="500"
+                loading="lazy">
+            </div>
+          {% endif %}
+          <div class="steps__gift-content">
+            {% if section.settings.gift_label != blank %}
+              <span class="steps__label steps__label--gift">{{ section.settings.gift_label }}</span>
+            {% endif %}
+            {% if section.settings.gift_heading != blank %}
+              <h3 class="steps__gift-heading">{{ section.settings.gift_heading }}</h3>
+            {% endif %}
+            {% if section.settings.gift_text != blank %}
+              <p class="steps__gift-text">{{ section.settings.gift_text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ND Steps",
+  "tag": "section",
+  "class": "section nd-steps",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Complimentary Gift Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gift",
+      "label": "Show gift banner",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "gift_image",
+      "label": "Gift image"
+    },
+    {
+      "type": "text",
+      "id": "gift_label",
+      "label": "Gift label",
+      "default": "Complimentary Gift"
+    },
+    {
+      "type": "text",
+      "id": "gift_heading",
+      "label": "Gift heading",
+      "default": "Complimentary Derma Stamp Included With Eligible Orders."
+    },
+    {
+      "type": "textarea",
+      "id": "gift_text",
+      "label": "Gift text",
+      "default": "To support your skincare journey between treatments, we include a complimentary derma stamp to ensure you have everything you need for consistent, long-term skin maintenance."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Step"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Prep & Cleanse."
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Start with clean, bare skin. No actives — just a gentle cleanse and a calm base."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Steps",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Prep & Cleanse.",
+            "text": "Start with clean, bare skin. No actives — just a gentle cleanse and a calm base."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Select Your Cartridge & Treat.",
+            "text": "Choose the right cartridge for your goal, then treat with steady, guided passes across the skin."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Hydrate & Recover.",
+            "text": "Follow with a barrier-supportive serum. Let your skin rest and repair overnight."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,199 @@
+<div class="hero__wrapper">
+    <div class="page-width">
+        <div class="hero__content">
+            {% if section.settings.eyebrow %}
+                <h4 class="hero__eyebrow">{{ section.settings.eyebrow }}</h4>
+            {% endif %}
+            {% if section.settings.title %}
+                <h1 class="hero__title">{{ section.settings.title }}</h1>
+            {% endif %}
+            {% if section.settings.button_label and section.settings.button_link %}
+                <a href="{{ section.settings.button_link }}" class="th-btn th-btn--light">
+                    <span class="th-btn__label">{{ section.settings.button_label }}</span>
+                    <span class="th-btn__icon">
+                        <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.4041 8.70137L16.477 4.62839L12.4041 0.55542M16.477 4.62839H0.55542" stroke="currentColor" stroke-width="1.11081" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+            {% endif %}
+        </div>
+        {% if section.settings.hero_image %}
+            <div class="hero__image">
+                <img src="{{ section.settings.hero_image | img_url: '2048x' }}" alt="{{ section.settings.title }}">
+            </div>
+        {% endif %}
+        <div class="hero__products">
+            <div class="hero__product-card">
+                {% for block in section.blocks %}
+                    {% if block.type == 'feature_card' %}
+                    <div class="hero__product-item">
+                        {% if block.settings.image %}
+                            <img src="{{ block.settings.image | img_url: '2048x' }}" alt="{{ block.settings.title }}">
+                        {% endif %}
+                        <div class="hero__product-info">
+                            {% if block.settings.title %}
+                                <h3>{{ block.settings.title }}</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% if section.settings.description %}
+                <div class="hero__products-dis">
+                    <p>{{ section.settings.description }}</p>
+                </div>
+            {% endif %}
+            <div class="hero__trust-badges">
+              {% for block in section.blocks %}
+                  {% if block.type == 'trust_badge' %}
+                      <div class="hero__trust-badge">
+                          {% if block.settings.badge_image %}
+                              <img src="{{ block.settings.badge_image | img_url: '2048x' }}" alt="{{ block.settings.badge_text }}">
+                          {% endif %}
+                          {% if block.settings.badge_text %}
+                              <span>{{ block.settings.badge_text }}</span>
+                          {% endif %}
+                      </div>
+                  {% endif %}
+              {% endfor %}
+            </div>
+            {% comment %}
+            <div class="hero__products-reviews">
+                {% if section.settings.review_score %}
+                    <div class="hero__review-score">
+                        <span class="hero__review-stars">
+                            <svg width="119" height="23" viewBox="0 0 119 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.4287 2.92705C10.7281 2.00574 12.0315 2.00574 12.3308 2.92705L13.7102 7.17225C13.8441 7.58427 14.228 7.86324 14.6612 7.86324H19.1249C20.0936 7.86324 20.4964 9.10285 19.7127 9.67225L16.1015 12.2959C15.751 12.5506 15.6044 13.0019 15.7382 13.414L17.1176 17.6592C17.4169 18.5805 16.3625 19.3466 15.5788 18.7772L11.9676 16.1535C11.6171 15.8989 11.1425 15.8989 10.792 16.1535L7.18081 18.7772C6.3971 19.3466 5.34262 18.5805 5.64197 17.6592L7.02132 13.414C7.15519 13.0019 7.00854 12.5506 6.65805 12.2959L3.04686 9.67225C2.26315 9.10285 2.66593 7.86324 3.63465 7.86324H8.09832C8.53154 7.86324 8.9155 7.58428 9.04938 7.17225L10.4287 2.92705Z" fill="#FDF9EE"/>
+                                <path d="M34.4893 2.92705C34.7886 2.00574 36.092 2.00574 36.3914 2.92705L37.7707 7.17225C37.9046 7.58427 38.2886 7.86324 38.7218 7.86324H43.1855C44.1542 7.86324 44.557 9.10285 43.7732 9.67225L40.1621 12.2959C39.8116 12.5506 39.6649 13.0019 39.7988 13.414L41.1781 17.6592C41.4775 18.5805 40.423 19.3466 39.6393 18.7772L36.0281 16.1535C35.6776 15.8989 35.203 15.8989 34.8525 16.1535L31.2414 18.7772C30.4576 19.3466 29.4032 18.5805 29.7025 17.6592L31.0819 13.414C31.2157 13.0019 31.0691 12.5506 30.7186 12.2959L27.1074 9.67225C26.3237 9.10285 26.7265 7.86324 27.6952 7.86324H32.1589C32.5921 7.86324 32.976 7.58428 33.1099 7.17225L34.4893 2.92705Z" fill="#FDF9EE"/>
+                                <path d="M58.5488 2.92705C58.8482 2.00574 60.1516 2.00574 60.451 2.92705L61.8303 7.17225C61.9642 7.58427 62.3481 7.86324 62.7814 7.86324H67.245C68.2138 7.86324 68.6165 9.10285 67.8328 9.67225L64.2216 12.2959C63.8711 12.5506 63.7245 13.0019 63.8584 13.414L65.2377 17.6592C65.5371 18.5805 64.4826 19.3466 63.6989 18.7772L60.0877 16.1535C59.7372 15.8989 59.2626 15.8989 58.9121 16.1535L55.3009 18.7772C54.5172 19.3466 53.4627 18.5805 53.7621 17.6592L55.1414 13.414C55.2753 13.0019 55.1287 12.5506 54.7782 12.2959L51.167 9.67225C50.3833 9.10285 50.786 7.86324 51.7548 7.86324H56.2184C56.6517 7.86324 57.0356 7.58428 57.1695 7.17225L58.5488 2.92705Z" fill="#FDF9EE"/>
+                                <path d="M82.6094 2.92705C82.9087 2.00574 84.2122 2.00574 84.5115 2.92705L85.8909 7.17225C86.0247 7.58427 86.4087 7.86324 86.8419 7.86324H91.3056C92.2743 7.86324 92.6771 9.10285 91.8934 9.67225L88.2822 12.2959C87.9317 12.5506 87.785 13.0019 87.9189 13.414L89.2983 17.6592C89.5976 18.5805 88.5431 19.3466 87.7594 18.7772L84.1482 16.1535C83.7977 15.8989 83.3231 15.8989 82.9727 16.1535L79.3615 18.7772C78.5778 19.3466 77.5233 18.5805 77.8226 17.6592L79.202 13.414C79.3359 13.0019 79.1892 12.5506 78.8387 12.2959L75.2275 9.67225C74.4438 9.10285 74.8466 7.86324 75.8153 7.86324H80.279C80.7122 7.86324 81.0962 7.58428 81.23 7.17225L82.6094 2.92705Z" fill="#FDF9EE"/>
+                                <path d="M106.669 2.92705C106.969 2.00574 108.272 2.00574 108.571 2.92705L109.951 7.17225C110.085 7.58427 110.468 7.86324 110.902 7.86324H115.365C116.334 7.86324 116.737 9.10285 115.953 9.67225L112.342 12.2959C111.992 12.5506 111.845 13.0019 111.979 13.414L113.358 17.6592C113.657 18.5805 112.603 19.3466 111.819 18.7772L108.208 16.1535C107.858 15.8989 107.383 15.8989 107.032 16.1535L103.421 18.7772C102.638 19.3466 101.583 18.5805 101.882 17.6592L103.262 13.414C103.396 13.0019 103.249 12.5506 102.899 12.2959L99.2873 9.67225C98.5036 9.10285 98.9064 7.86324 99.8751 7.86324H104.339C104.772 7.86324 105.156 7.58428 105.29 7.17225L106.669 2.92705Z" fill="#FDF9EE"/>
+                            </svg>
+                        </span>
+                        <span class="hero__review-score-value">{{ section.settings.review_score }}</span>
+                    </div>
+                {% endif %}
+                {% if section.settings.review_count %}
+                    <span class="hero__review-count">{{ section.settings.review_count }}</span>
+                {% endif %}
+            </div>
+            {% endcomment %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "ND Hero",
+  "tag": "section",
+  "class": "section hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Nuovaderm · Guided Skincare Technology"
+    },
+    {
+      "type": "html",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Understand your skin and choose the right device with confidence."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Find Your Routine"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "review_score",
+      "label": "Review Score",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review Count",
+      "default": "12k+ Reviews"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature Card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Dr Pen M8"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Card Subtitle",
+          "default": "Choose the right device, get better results."
+        }
+      ]
+    },
+    {
+      "type": "trust_badge",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "badge_image",
+          "label": "Badge Image"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "As Seen On"
+        }
+      ]
+    },
+  ],
+  "presets": [
+    {
+      "name": "ND Hero",
+      "blocks": [
+        {
+          "type": "feature_card"
+        },
+        {
+          "type": "feature_card"
+        },
+        {
+          "type": "trust_badge"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

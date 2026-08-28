@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "nd_faq_cXBPDP": {
+      "type": "nd-faq",
+      "blocks": {
+        "faq_Jz9tMk": {
+          "type": "faq",
+          "settings": {
+            "open": true,
+            "question": " I just placed an order, when will it ship?",
+            "answer": "We try our best to ship items as fast as we can. Please allow 24–48 hours of production time for your order to ship out, average shipping times are 4–15 days within the USA and usually 9–18 days to the rest of the world. If you have any questions, email us at info@nuovadermbeauty.com"
+          }
+        },
+        "faq_jPtGLz": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "I am not in love with my order, can it be returned? What if there is an issue?",
+            "answer": "We offer a 100 % money-back guarantee only if you receive the product defective or damaged. We give you 30 days to send it back to us for a full refund. You must ship it back at your own expense, once we have received the product, we will refund the full amount of your original purchase. Please include all a name and order numbers on the returned parcels.\n\nPlease note: If your package is on the way, you must wait for it to arrive and return it before receiving a refund."
+          }
+        },
+        "faq_3NHrJE": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "Can I cancel my order?",
+            "answer": "You are able to cancel your order with no penalty! You must cancel your order before it ships."
+          }
+        },
+        "faq_tKbCLM": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "I have entered an incorrect address, what do I do now?",
+            "answer": "If you have misspelled or autofilled in an incorrect address, wait for your order confirmation email. Once you double-check if the address given is wrong, kindly notify us via email at info@nuovadermbeauty.com\n\nIf the given address is wrong, we can change the address to the correct one within 24 hours. No refund will be given after 24 hours of incorrect submission."
+          }
+        },
+        "faq_FgUt9p": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "How long does shipping take?",
+            "answer": "Shipping times vary as we do ship worldwide from different fulfillment centers based on your location. The average shipping time is 4-15days within the USA and usually 9–18 days to the rest of the world."
+          }
+        },
+        "faq_ijBFUq": {
+          "type": "faq",
+          "settings": {
+            "open": false,
+            "question": "I have a question that wasn't answered, can you please help?",
+            "answer": "Absolutely! We are here for you! Please send us an email at info@nuovadermbeauty.com and we will be happy to assist you in any way we can.\n\nWe do receive  a large number of emails, If you wish to get a prompt response please attach your order number and address the problem clearly, thank you."
+          }
+        }
+      },
+      "block_order": [
+        "faq_Jz9tMk",
+        "faq_jPtGLz",
+        "faq_3NHrJE",
+        "faq_tKbCLM",
+        "faq_FgUt9p",
+        "faq_ijBFUq"
+      ],
+      "name": "ND FAQ",
+      "settings": {
+        "is_heading_h1": true,
+        "eyebrow": "FAQs",
+        "heading": "Frequently Asked Questions"
+      }
+    }
+  },
+  "order": [
+    "nd_faq_cXBPDP"
+  ]
+}

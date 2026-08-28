@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "ts_footer_yQGgNf": {
+      "type": "ts-footer",
+      "blocks": {
+        "about_pridFm": {
+          "type": "about",
+          "settings": {
+            "heading": "About Nuovaderm",
+            "text": "<p>Nuovaderm is your trusted destination for advanced beauty technology and microneedling expertise.</p>"
+          }
+        },
+        "link_list_WXQ9pL": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick Links",
+            "menu": "footer"
+          }
+        },
+        "contact_AmGRhN": {
+          "type": "contact",
+          "settings": {
+            "heading": "Contact Us",
+            "email": "info@nuovadermbeauty.com"
+          }
+        },
+        "link_list_wA63kW": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Policies",
+            "menu": "policies"
+          }
+        },
+        "newsletter_wTRhtE": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Signup For Newsletter",
+            "placeholder": "Enter your e-mail address",
+            "button_label": "Submit"
+          }
+        }
+      },
+      "block_order": [
+        "about_pridFm",
+        "link_list_WXQ9pL",
+        "contact_AmGRhN",
+        "link_list_wA63kW",
+        "newsletter_wTRhtE"
+      ],
+      "name": "ND Footer",
+      "settings": {
+        "logo": "shopify://shop_images/logo.png",
+        "show_payment_icons": true,
+        "payment_icons": "shopify://shop_images/payment.png",
+        "show_powered_by": false
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "email_popup_9nDkQr": {
+      "type": "email-popup",
+      "name": "ND Email Popup",
+      "settings": {
+        "eyebrow": "WELCOME OFFER",
+        "heading": "Get 15% Off Your First Order",
+        "subheading": "Enter your email to unlock 15% off your first purchase, plus access to new arrivals and special offers.",
+        "placeholder": "your@email.com",
+        "button_label": "Unlock 15% Off",
+        "dismiss_label": "Maybe later",
+        "discount_code": "FirstOrder15%Off",
+        "success_heading": "You're In!",
+        "success_message": "Here's your code for 15% off your first order. It's already yours — just apply it at checkout.",
+        "copy_button_label": "Copy Code",
+        "copied_label": "Copied!",
+        "success_button_label": "Start Shopping",
+        "delay_seconds": 8,
+        "enable_exit_intent": true,
+        "suppress_days": 7
+      }
+    }
+  },
+  "order": [
+    "ts_footer_yQGgNf",
+    "footer",
+    "email_popup_9nDkQr"
+  ]
+}

@@ -1,0 +1,238 @@
+{% assign tabs = 'mb,mbs' | split: ',' %}
+
+<div class="page-width">
+  <div class="title-block">
+    {% if section.settings.eyebrow %}
+      <h4>{{ section.settings.eyebrow }}</h4>
+    {% endif %}
+    {% if section.settings.heading %}
+      <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.description %}
+      <p>{{ section.settings.description }}</p>
+    {% endif %}
+  </div>
+  <div class="grid grid--3-col grid--1-col-tablet-down routine-grid__wrapper">
+    {% for block in section.blocks %}
+        {% render 'routine-card', block: block %}
+    {% endfor %}
+  </div>
+  {% comment %}
+    <div class="routine-grid__tabs-wrapper">
+      <div class="routine-grid__tabs" role="tablist">
+        {% for tab in tabs %}
+          <button
+            id="routine-tab-{{ forloop.index0 }}"
+            class="routine-grid__tab{% if forloop.first %} is-active{% endif %}"
+            role="tab"
+            aria-controls="routine-panel-{{ tab }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            data-index="{{ forloop.index0 }}">
+            {% if tab == 'mb' %}
+              {{ section.settings.first_tab_label }}
+            {% elsif tab == 'mbs' %}
+              {{ section.settings.second_tab_label }}
+            {% endif %}
+          </button>
+        {% endfor %}
+      </div>
+      {% for tab in tabs %}
+        <div
+          class="routine-grid__panel{% if forloop.first %} is-active{% endif %}"
+          id="routine-panel-{{ tab }}"
+          data-index="{{ forloop.index0 }}"
+          role="tabpanel"
+          aria-labelledby="routine-tab-{{ forloop.index0 }}">
+          <div class="grid grid--3-col grid--1-col-tablet-down routine-grid__wrapper">
+            {% for block in section.blocks %}
+              {% if block.settings.product_type == tab %}
+                {% render 'routine-card'
+                  , block: block %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endcomment %}
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.routine-grid__tabs-wrapper').forEach(function (container) {
+      var tabs = Array.from(container.querySelectorAll('.routine-grid__tab'));
+      var cards = Array.from(container.querySelectorAll('.routine-grid__panel'));
+
+      function setActive(index) {
+        tabs.forEach(function (t) {
+          var i = Number(t.getAttribute('data-index'));
+          t.classList.toggle('is-active', i === index);
+          t.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        cards.forEach(function (c) {
+          var cardIndex = Number(c.getAttribute('data-index'));
+          c.classList.toggle('is-active', cardIndex === index);
+          c.setAttribute('aria-hidden', cardIndex === index ? 'false' : 'true');
+        });
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () {
+          setActive(i);
+        });
+        tab.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            tabs[(i + 1) % tabs.length].focus();
+          }
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            tabs[(i - 1 + tabs.length) % tabs.length].focus();
+          }
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setActive(i);
+          }
+        });
+      });
+
+      if (tabs.length) setActive(0);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "ND Routine Grid",
+  "tag": "section",
+  "class": "routine-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Prescriptions"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find your routine."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Different goals need different product bundles. Choose your starting point."
+    },
+    {
+      "type": "text",
+      "id": "first_tab_label",
+      "label": "First Tab Label",
+      "default": "MB"
+    },
+    {
+      "type": "text",
+      "id": "second_tab_label",
+      "label": "Second Tab Label",
+      "default": "MBS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bundle",
+      "name": "Bundle Card",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "radio",
+          "id": "product_type",
+          "label": "Product Type",
+          "default": "mb",
+          "options": [
+            {
+              "value": "mb",
+              "label": "MB"
+            },
+            {
+              "value": "mbs",
+              "label": "MBS"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "is_popular",
+          "label": "Is Popular"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Popular"
+        },
+        {
+          "type": "text",
+          "id": "plan",
+          "label": "Plan",
+          "default": "Begin"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The Results Bundle"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "From $329"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "A complete set for visible improvement and routine consistency."
+        },
+        {
+          "type": "richtext",
+          "id": "featured_list",
+          "label": "Featured List"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Explore This Bundle"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Routine Grid",
+      "blocks": [
+        {
+          "type": "bundle"
+        },
+        {
+          "type": "bundle"
+        },
+        {
+          "type": "bundle"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

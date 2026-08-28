@@ -1,0 +1,143 @@
+<div class="faq">
+    <div class="faq__wrapper">
+
+  <div class="page-width">
+      <div class="title-block faq__intro">
+        {% if section.settings.eyebrow != blank %}
+          <span class="faq__eyebrow">{{ section.settings.eyebrow }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          {% if section.settings.is_heading_h1 %}
+            <h1>{{ section.settings.heading }}</h1>
+          {% else %}
+          <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+        {% endif %}
+      </div>
+
+      <div class="faq__list">
+        {% for block in section.blocks %}
+          <details
+            class="faq__item"
+            {% if block.settings.open %}open{% endif %}
+            {{ block.shopify_attributes }}>
+            <summary class="faq__question">
+              <span>{{ block.settings.question }}</span>
+              <span class="faq__icon" aria-hidden="true">
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L8 8L15 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </summary>
+            {% if block.settings.answer != blank %}
+              <div class="faq__answer">{{ block.settings.answer }}</div>
+            {% endif %}
+          </details>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ND FAQ",
+  "tag": "section",
+  "class": "section nd-faq",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_heading_h1",
+      "label": "Use H1 for heading",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "FAQs"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open by default",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Does it hurt?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Most users describe the sensation as a light prickle. The M8S's adjustable depth means you stay in complete control — start shallow and work up as your skin adapts."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "open": true,
+            "question": "Does it hurt?",
+            "answer": "Most users describe the sensation as a light prickle. The M8S's adjustable depth means you stay in complete control — start shallow and work up as your skin adapts."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How often should I use it?",
+            "answer": "It depends on your cartridge and depth. Nano tips can be used daily, while deeper micro-needling passes are best spaced every 4–6 weeks to let the skin fully recover."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Which cartridge do I need?",
+            "answer": "Start with Nano or 12-pin cartridges for gentle absorption and daily glow. Move to 24–36 or 42-pin options as you build confidence and target deeper concerns."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Is this a genuine Dr. Pen device?",
+            "answer": "Yes. Nuovaderm is an authorized distributor, so every device is a genuine Dr. Pen backed by full warranty and support."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "When will my order ship?",
+            "answer": "Orders are processed within 1–2 business days and shipped in discreet packaging. You'll receive tracking details as soon as your order leaves our warehouse."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

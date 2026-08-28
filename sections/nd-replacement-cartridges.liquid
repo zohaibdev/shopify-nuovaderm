@@ -1,0 +1,83 @@
+<div class="page-width">
+  <div class="replacement-cartridges__wrapper">
+    <div class="title-block">
+      {% if section.settings.heading %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.description %}
+        <p>{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="grid grid--uniform grid--1-col grid--2-col-tablet grid--3-col-desktop">
+      {% for block in section.blocks %}
+        <div class="grid__item">
+          <div class="cartridge-card">
+            {% if block.settings.image %}
+              <div class="cartridge-option__image">
+                <a href="{{ block.settings.button_link }}">
+                  <img src="{{ block.settings.image | img_url: '480x480' }}" alt="{{ block.settings.title }}">
+                </a>
+              </div>
+            {% endif %}
+            {% if block.settings.title %}
+              <a href="{{ block.settings.button_link }}">
+                <h3 class="cartridge-option__title">{{ block.settings.title }}</h3>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "ND Replacement Cartridges",
+  "tag": "section",
+  "class": "section replacement-cartridges",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Already Have a Dr. Pen?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Find replacement cartridges made for your device."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cartridge_option",
+      "name": "Cartridge Option",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ND Replacement Cartridges"
+    }
+  ]
+}
+{% endschema %}
